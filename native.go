@@ -40,6 +40,7 @@ func (r *Runtime) TryToValue(i interface{}) (Value, error) {
 func (r *Runtime) MakeCustomError(name, msg string) *Object {
 	e := r.newError(r.getError(), msg).(*Object)
 	e.self.setOwnStr("name", asciiString(name), false)
+	e.self.setOwnStr("msg", asciiString(msg), false)
 	return e
 }
 
